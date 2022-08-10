@@ -21,10 +21,11 @@
     "no-empty-function": "error",
     "default-case": "error",
     "no-fallthrough": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": "warn",
     "no-use-before-define": "error",
     "no-redeclare": "error",
     "quotes": ["error", "single"],
-    "radix": "off"
+    "radix": "off",
+    "no-unused-expressions": "warn"
   }
 }
