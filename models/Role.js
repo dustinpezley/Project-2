@@ -23,14 +23,6 @@ Role.init(
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
     },
-    primary_venue: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'venue',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,
