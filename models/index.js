@@ -38,12 +38,20 @@ Role.hasMany(Employee, {
   foreignKey: 'role_id',
 });
 
-Venue.hasMany(Role, {
+Venue.hasMany(Employee, {
   foreignKey: 'primary_venue',
 });
 
-Role.belongsTo(Venue, {
+Employee.belongsTo(Venue, {
   foreignKey: 'primary_venue',
+});
+
+User.hasOne(Employee, {
+  foreignKey: 'employee_id',
+});
+
+Employee.belongsTo(User, {
+  foreignKey: 'employee_id',
 });
 
 module.exports = { User, Venue, Talent, Sales, Role, Employee };

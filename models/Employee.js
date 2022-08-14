@@ -27,11 +27,20 @@ Employee.init(
         key: 'id',
       },
     },
+    primary_venue: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'venue',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
+    paranoid: true,
     modelName: 'employees',
   }
 );
