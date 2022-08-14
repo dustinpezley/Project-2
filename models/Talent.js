@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Talent extends Model {}
 Talent.init(
@@ -17,8 +17,8 @@ Talent.init(
     venue_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'venue',
-        key: 'id',
+        model: "venue",
+        key: "id",
       },
     },
   },
@@ -26,7 +26,7 @@ Talent.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'act',
+    modelName: "talent",
   }
 );
 
