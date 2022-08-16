@@ -11,7 +11,7 @@
     <div class="col-6 contact-form">
       <form action="mailto:contact@polyrhythm.com">
         <div class="mb-3 form-floating">
-          <input type="email" class="form-control" id="contact-from-email" placeholder="name@example.com">
+          <input type="email" class="form-control" id="contact-from-email" aria-describedBy="contact-from-help" placeholder="name@example.com">
           <label for="contact-from-email">From:</label>
           <div class="form-text" id="contact-from-help">We'll never share your email with anyone else.</div>
         </div>
@@ -22,6 +22,10 @@
         <div class="mb-3 form-floating">
           <input type="email" class="form-control" id="contact-to-email" value="contact@polyrhythm.com">
           <label for="contact-to-email">To:</label>
+        </div>
+        <div class="mb-3 form-floating">
+          <input type="date" class="form-control" id="contact-event-date">
+          <label for="contact-event-date">Date requested:</label>
         </div>
         <div class="mb-3 form-floating">
           <select id="contact-capacity" class="form-select">
@@ -36,6 +40,7 @@
           <textarea class="form-control" placeholder="Ask about your next event here!" id="contact-body"></textarea>
           <label for="contact-body">Details:</label>
         </div>
+        <button class="btn" id="contact-btn">Contact us</button>
       </form>
     </div>
   </div>
