@@ -1,0 +1,43 @@
+<div class="container-fluid overflow-hidden">
+  <div class="row jusify-content-center align-items-center logo-container">
+    <div class="col-6 logo">
+      <img src="/public/assets/images/Polyrhythm.png" alt="Polyrhythm logo">
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center info-container">
+    {{> info-text}}
+  </div>
+  <div class="row justify-content-center align-items-center contact-container">
+    <div class="col-6 contact-form">
+      <form action="mailto:contact@polyrhythm.com">
+        <div class="mb-3 form-floating">
+          <input type="email" class="form-control" id="contact-from-email" placeholder="name@example.com">
+          <label for="contact-from-email">From:</label>
+          <div class="form-text" id="contact-from-help">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3 form-floating">
+          <input type="text" class="form-control" id="contact-subject">
+          <label for="contact-subject">Subject:</label>
+        </div>
+        <div class="mb-3 form-floating">
+          <input type="email" class="form-control" id="contact-to-email" value="contact@polyrhythm.com">
+          <label for="contact-to-email">To:</label>
+        </div>
+        <div class="mb-3 form-floating">
+          <select id="contact-capacity" class="form-select">
+            <option selected>How many people do you expect?</option>
+            <option value="1">1 - 500</option>
+            <option value="2">501 - 4,000</option>
+            <option value="3">4,001+</option>
+          </select>
+          <label for="contact-capacity">Number of attendees expected:</label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Ask about your next event here!" id="contact-body"></textarea>
+          <label for="contact-body">Details:</label>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{> footer }}
+</div>
