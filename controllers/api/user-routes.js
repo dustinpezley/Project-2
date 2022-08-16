@@ -8,15 +8,15 @@ router.get('/', withAuth, (req, res) => {
     attributes: { exclude: ['password'] },
     include: [
       {
-        model: 'employees',
+        model: Employee,
         attributes: ['first_name', 'last_name'],
         include: [
           {
-            model: 'role',
+            model: Role,
             attributes: ['name'],
           },
           {
-            model: 'venue',
+            model: Venue,
             attributes: ['name'],
           },
         ],
@@ -36,15 +36,15 @@ router.get('/:id', withAuth, (req, res) => {
     },
     include: [
       {
-        model: 'employees',
+        model: Employee,
         attributes: ['first_name', 'last_name'],
         include: [
           {
-            model: 'role',
+            model: Role,
             attributes: ['name'],
           },
           {
-            model: 'venue',
+            model: Venue,
             attributes: ['name'],
           },
         ],
