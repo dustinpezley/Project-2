@@ -13,13 +13,7 @@ Talent.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    venue_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'venue',
-        key: 'id',
-      },
+      onDelete: 'CASCADE',
     },
   },
   {

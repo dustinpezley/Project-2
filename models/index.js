@@ -4,14 +4,23 @@ const Venue = require('./Venue');
 const Talent = require('./Talent');
 const Employee = require('./Employee');
 const Role = require('./Role');
+const Shows = require('./Shows');
 // const { MODULEDECLARATION_TYPES } = require('@babel/types');
 
-Venue.hasMany(Talent, {
+Venue.hasMany(Shows, {
   foreignKey: 'venue_id',
 });
 
-Talent.belongsTo(Venue, {
+Shows.belongsTo(Venue, {
   foreignKey: 'venue_id',
+});
+
+Talent.hasMany(Shows, {
+  foreignKey: 'talent_id',
+});
+
+Shows.belongsTo(Talent, {
+  foreignKey: 'talent_id',
 });
 
 Talent.hasMany(Sales, {
