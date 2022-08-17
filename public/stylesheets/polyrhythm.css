@@ -38,6 +38,20 @@ body {
 }
 /* LOGO AND ANIMATION END */
 
+/* MENU STYLING SPECIFIC TO PAGE */
+.dropdown-toggle {
+  background-color: transparent;
+  border: 3px solid #dc2b46;
+  border-radius: 10px;
+  color: white;
+}
+
+.dropdown-toggle:hover {
+  border: 3px solid white;
+  color: #dc2b46;
+}
+/* MENU STYLING END */
+
 /* INFO TEXT */
 .info-container {
   height: 60vh;

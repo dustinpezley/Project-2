@@ -32,7 +32,7 @@
       id='off-canvas-menu'
       aria-labelledby='off-canvas-menu'
     >
-      <div class='offcanvas-header mt-3'>
+      <div class='offcanvas-header mt-3 mb-5'>
         <a href='/' class='menu-link text-start' id='polyrhythm-link'><img
             src='/assets/images/polyrhythm.png'
             alt='polyrhythm logo with a direct link'
@@ -45,7 +45,9 @@
           aria-label='Close'
         ></button>
       </div>
-      <div class='offcanvas-body justify-content-center align-items-center'>
+      <div
+        class='offcanvas-body d-flex flex-column justify-content-between text-center mt-5'
+      >
         <div>
           <a
             href='/dolce'
@@ -56,7 +58,7 @@
           ><img
               src='/assets/images/dolce.png'
               alt='dolce logo with a direct link'
-              class='w-75 mb-5'
+              class='w-75 mb-5 mt-3'
             /></a>
           <a
             href='/modular'
@@ -67,7 +69,7 @@
           ><img
               src='/assets/images/modular.png'
               alt='modular logo with a direct link'
-              class='w-75 mb-5'
+              class='w-75 mb-5 mt-2'
             /></a>
           <a
             href='/harmony'
@@ -78,17 +80,18 @@
           ><img
               src='/assets/images/harmony.png'
               alt='harmony logo with a direct link'
-              class='w-75'
+              class='w-75 mt-3'
             /></a>
         </div>
-        <div class='dropdown mt-3 text-center'>
+        <div class='dropdown-center mt-3 text-center'>
           <button
             type='button'
-            class='btn dropdown-toggle btn-light text-dark'
+            class='btn dropdown-toggle btn-lg'
             id='calendar-button'
             data-bs-toggle='dropdown'
+            aria-expanded='false'
           >Upcoming shows</button>
-          <ul class='dropdown-menu'>
+          <ul class='dropdown-menu overflow-visible dropdown-menu-dark'>
             <li><a class='dropdown-item' href='dolce/calendar'>Dolce</a></li>
             <li><a
                 class='dropdown-item'
@@ -127,8 +130,8 @@
       </div>
     </main>
     <script
-      src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js'
-      integrity='sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK'
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js'
+      integrity='sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa'
       crossorigin='anonymous'
     ></script>
     <script
