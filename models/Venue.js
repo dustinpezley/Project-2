@@ -23,10 +23,6 @@ Venue.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    amenities: {
-      type: DataTypes.ARRAY,
-      allowNull: false,
-    },
   },
   {
     sequelize,

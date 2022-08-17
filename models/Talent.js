@@ -20,7 +20,7 @@ Talent.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'act',
+    modelName: 'talent',
   }
 );
 
