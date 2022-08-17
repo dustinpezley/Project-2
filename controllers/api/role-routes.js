@@ -49,7 +49,7 @@ router.get("/:id", withAuth, (req, res) => {
         return;
       }
 
-      res.json(dbEmployeeData);
+      res.json(dbRoleData);
     })
     .catch((err) => {
       res.status(500).json(err);
@@ -71,13 +71,13 @@ router.put("/:id", withAuth, (req, res) => {
       },
     }
   )
-    .then((dbEmployeeData) => {
-      if (!dbEmployeeData) {
+    .then((dbRoleData) => {
+      if (!dbRoleData) {
         res.status(404).json({ message: "Role not found" });
         return;
       }
 
-      res.json(dbEmployeeData);
+      res.json(dbRoleData);
     })
     .catch((err) => res.status(500).json(err));
 });
@@ -95,7 +95,7 @@ router.delete("/:id", withAuth, (req, res) => {
         return;
       }
 
-      res.json(dbEmployeeData);
+      res.json(dbRoleData);
     })
     .catch((err) => res.status(500).json(err));
 });
