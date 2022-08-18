@@ -1,0 +1,27 @@
+<div class='container-fluid overflow-hidden'>
+  <div
+    class='row justify-content-center align-items-center next-show-info-container'
+  >
+    <div class='next-show-info col-8'>
+      {{#with talent}}
+
+        {{! will need to populate talent table with image references to github permalinks in order to fully render }}
+        <div class='col-2 artist-image'>
+            <img src="public/assets/images/Venues/Harmony - Artist 02 - Solo singer.jpg" alt="Harmony-artist logo" class="artist-sample" id="harmony">
+        </div>
+        <div class='col-6 artist-info'>
+          <p class='show-date'>{{format_date shows.0.performace_date}}</p>
+          <h2 class='artist-name'>{{talent.title}}</h2>
+        </div>
+      {{/with}}
+    </div>
+  </div>
+  <div class='row justify-content-between align-items-center info-container'>
+    <div class='info col-6'>
+      {{> info-text}}
+    </div>
+    <div class="col-2 logo-container">
+      <img src="public/assets/images/Harmony.png" alt="Harmony logo" class="logo" id="harmony">
+    </div>
+  </div>
+</div>
