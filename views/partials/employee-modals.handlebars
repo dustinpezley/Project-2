@@ -1,0 +1,253 @@
+{{! View employees }}
+<div
+  class='modal fade'
+  id='view-employees-modal'
+  tabindex='-1'
+  aria-labelledby='view-employees-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='view-employees-modal-title'>View Employees</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='card'>
+          <div class='card-header'>
+            <div class='row'>
+              <p class='col-2 text-center lh-1 pb-0'>Last name</p>
+              <p class='col-2 text-center lh-1 pb-0'>First name</p>
+              <p class='col-2 text-center lh-1 pb-0'>Role</p>
+              <p class='col-2 text-center lh-1 pb-0'>Salary</p>
+              <p class='col-2 text-center lh-1 pb-0'>Salary rate</p>
+              <p class='col-2 text-center lh-1 pb-0'>Primary venue</p>
+            </div>
+            <ul class='list-group list-group-flush'>
+              {{#each employee}}
+                <div class='row'>
+                  <li
+                    class='list-group-item col-2 text-center'
+                  >{{employee.last_name}}</li>
+                  <li
+                    class='list-group-item col-2 text-center'
+                  >{{employee.first_name}}</li>
+                  <li
+                    class='list-group-item col-2 text-center'
+                  >{{role.name}}</li>
+                  <li
+                    class='list-group-item col-2 text-center'
+                  >{{role.salary}}</li>
+                  <li
+                    class='list-group-item col-2 text-center'
+                  >{{role.salary_rate}}</li>
+                  <li
+                    class='list-group-item col-2 text-center'
+                  >{{employee.primary_venue}}</li>
+                </div>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Add employee }}
+<div
+  class='modal fade'
+  id='add-employees-modal'
+  tabindex='-1'
+  aria-labelledby='add-employees-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='add-employees-modal-title'>Add an Employee</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='employee-first-name' class='col-form-label'>First name</label>
+          <input type='text' class='form-control' id='employee-first-name' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='employee-last-name' class='col-form-label'>Last name</label>
+          <input type='text' class='form-control' id='employee-last-name' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='employee-role' class='col-form-label'>Role</label>
+          <select class='form-select' id='employee-role'>
+            {{#each role}}
+              <option value="{{role.id}}">{{role.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='employee-primary-venue' class='col-form-label'>Primary
+            Venue</label>
+          <select class='form-select' id='employee-primary-venue'>
+            {{#each venue}}
+              <option value="{{venue.id}}">{{venue.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Add employee</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Update employee }}
+<div
+  class='modal fade'
+  id='select-employees-modal'
+  tabindex='-1'
+  aria-labelledby='select-employees-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='select-employees-modal-title'>Select an
+          Employee to Update</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <select class="form-select" id="select-employees-update">
+          {{#each employee}}
+            <option value="{{employee.id}}">{{employee.last_name}}, {{employee.first_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button
+          type='button'
+          class='btn'
+          data-bs-target='#update-employees-modal'
+          data-bs-toggle='modal'
+        >Go to update role</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class='modal fade'
+  id='view-employees-modal'
+  tabindex='-1'
+  aria-labelledby='add-employees-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='add-employees-modal-title'>Update an
+          Employee</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='employee-first-name' class='col-form-label'>First name</label>
+          <input
+            type='text'
+            class='form-control'
+            id='employee-first-name-update'
+          />
+        </div>
+        <div class='mb-3 row'>
+          <label for='employee-last-name' class='col-form-label'>Last name</label>
+          <input
+            type='text'
+            class='form-control'
+            id='employee-last-name-update'
+          />
+        </div>
+        <div class='mb-3 row'>
+          <label for='employee-role' class='col-form-label'>Last name</label>
+          <select class='form-select' id='employee-role-update'>
+            {{#each role}}
+              <option value="{{role.id}}">{{role.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='employee-primary-venue' class='col-form-label'>Last name</label>
+          <select class='form-select' id='employee-primary-venue-update'>
+            {{#each venue}}
+              <option value="{{venue.id}}">{{venue.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Update employee</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Remove employees }}
+<div
+  class='modal fade'
+  id='remove-employees-modal'
+  tabindex='-1'
+  aria-labelledby='remove-employees-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='remove-employees-modal-title'>Remove
+          Employee(s)</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        {{#each employee}}
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="employee-delete-{{employee.id}}"></input>
+            <label for="employee-delete-{{employee.id}}" class="form-check-label">{{employee.last_name}}, {{employee.first_name}}</label>
+          </div>
+        {{/each}}
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Remove employee(s)</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, (req, res) => {
   Employee.findAll({
     attributes: ['first_name', 'last_name'],
+    order: ['last_name', 'ASC'],
     include: [
       {
         model: User,
