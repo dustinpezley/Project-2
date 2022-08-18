@@ -87,7 +87,7 @@
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Add show</button>
+        <button type='button' class='btn' id='add-show-btn'>Add show</button>
       </div>
     </div>
   </div>
@@ -166,33 +166,34 @@
       </div>
       <div class='modal-body'>
         <div class='mb-3 row'>
-          <label for='add-show-talent' class='col-form-label'>Artist</label>
-          <select id='add-show-talent' class='form-select'>
+          <label for='update-show-talent' class='col-form-label'>Artist</label>
+          <select id='update-show-talent' class='form-select'>
             {{#each talent}}
               <option value='{{talent.id}}'>{{talent.title}}</option>
             {{/each}}
           </select>
         </div>
         <div class='mb-3 row'>
-          <label for='add-show-venue' class='col-form-label'>Venue</label>
-          <select id='add-show-venue' class='form-select'>
+          <label for='update-show-venue' class='col-form-label'>Venue</label>
+          <select id='update-show-venue' class='form-select'>
             {{#each venue}}
               <option value='{{venue.id}}'>{{venue.name}}</option>
             {{/each}}
           </select>
         </div>
         <div class='mb-3 row'>
-          <label for='add-show-date' class='col-form-label'>Date</label>
-          <input type='date' id='add-show-date' class='form-control' />
+          <label for='update-show-date' class='col-form-label'>Date</label>
+          <input type='date' id='update-show-date' class='form-control' />
         </div>
         <div class='mb-3 row'>
-          <label for='add-show-time' class='col-form-label'>Time</label>
-          <input type='time' id='add-show-time' class='form-control' />
+          <label for='update-show-time' class='col-form-label'>Time</label>
+          <input type='time' id='update-show-time' class='form-control' />
         </div>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Update artist/performer/speaker</button>
+        <button type='button' class='btn' id='update-show-btn'>Update
+          artist/performer/speaker</button>
       </div>
     </div>
   </div>
@@ -211,7 +212,7 @@
   >
     <div class='modal-content'>
       <div class='modal-header'>
-        <h5 class='modal-title' id='remove-show-modal-title'>Remove Show(s)</h5>
+        <h5 class='modal-title' id='remove-show-modal-title'>Remove Show</h5>
         <button
           type='button'
           class='btn-close'
@@ -220,30 +221,21 @@
         ></button>
       </div>
       <div class='modal-body'>
-        {{#each show}}
-          <div class='form-check form-switch'>
-            <input
-              class='form-check-input'
-              type='checkbox'
-              role='switch'
-              id='show-delete-{{show.id}}'
-            />
-            <label
-              for='show-delete-{{show.id}}'
-              class='form-check-label'
-            >{{talent.title}}
+        <select class='form-select'>
+          {{#each show}}
+            <option value='{{show.id}}'>{{talent.title}}
               at
               {{venue.name}}
               on
               {{shows.performance_date}}
               at
-              {{shows.performance_time}}</label>
-          </div>
-        {{/each}}
+              {{shows.performance_time}}</option>
+          {{/each}}
+        </select>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Remove show(s)</button>
+        <button type='button' class='btn' id='remove-show-btn'>Remove show</button>
       </div>
     </div>
   </div>

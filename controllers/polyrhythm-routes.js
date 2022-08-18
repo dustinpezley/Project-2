@@ -3,6 +3,7 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
   res.render('polyrhythm', {
     layout: 'main',
+    title: 'Polyrhythm Entertainment',
     loggedIn: req.session.loggedIn,
   });
 });

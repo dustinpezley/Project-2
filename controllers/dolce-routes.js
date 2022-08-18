@@ -1,17 +1,19 @@
+const { Op } = require('sequelize');
 const router = require('express').Router();
 const { Shows, Venue, Talent } = require('../models');
 
 // Get all shows for Dolce
 router.get('/', (req, res) => {
-  Shows.findAll({
+  const currentDate = new Date().toISOString().split('T')[0];
+  Shows.findOne({
     where: {
       venue_id: 1,
+      performance_date: {
+        [Op.gte]: currentDate,
+      },
     },
     attributes: ['performance_date', 'performance_time'],
-    order: [
-      ['performance_date', 'ASC'],
-      ['performance_time', 'ASC'],
-    ],
+    order: [['performance_date'], ['performance_time']],
     include: [
       {
         model: Venue,
@@ -25,13 +27,13 @@ router.get('/', (req, res) => {
   })
     .then((dbShowsData) => {
       const shows = dbShowsData.map((show) => show.get({ plain: true }));
-      const currentDate = new Date().toISOString();
+      // const currentDate = new Date();
 
-      const nextShow = shows.find(
-        // eslint-disable-next-line camelcase
-        (performance_date) => performance_date > currentDate
-      );
-      res.render('dolce', { nextShow });
+      // const nextShow = shows.find(
+      //   // eslint-disable-next-line camelcase
+      //   (performance_date) => performance_date > currentDate
+      // );
+      res.render('dolce', { shows, title: 'Dolce' });
     })
     .catch((err) => {
       res.status(500).json(err);

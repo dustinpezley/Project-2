@@ -6,7 +6,9 @@
   aria-labelledby='view-employees-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='view-employees-modal-title'>View Employees</h5>
@@ -70,7 +72,9 @@
   aria-labelledby='add-employees-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='add-employees-modal-title'>Add an Employee</h5>
@@ -94,7 +98,7 @@
           <label for='employee-role' class='col-form-label'>Role</label>
           <select class='form-select' id='employee-role'>
             {{#each role}}
-              <option value="{{role.id}}">{{role.name}}</option>
+              <option value='{{role.id}}'>{{role.name}}</option>
             {{/each}}
           </select>
         </div>
@@ -103,14 +107,14 @@
             Venue</label>
           <select class='form-select' id='employee-primary-venue'>
             {{#each venue}}
-              <option value="{{venue.id}}">{{venue.name}}</option>
+              <option value='{{venue.id}}'>{{venue.name}}</option>
             {{/each}}
           </select>
         </div>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Add employee</button>
+        <button type='button' class='btn' id='add-employee-btn'>Add employee</button>
       </div>
     </div>
   </div>
@@ -124,7 +128,9 @@
   aria-labelledby='select-employees-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='select-employees-modal-title'>Select an
@@ -137,9 +143,10 @@
         ></button>
       </div>
       <div class='modal-body'>
-        <select class="form-select" id="select-employees-update">
+        <select class='form-select' id='select-employee-update'>
           {{#each employee}}
-            <option value="{{employee.id}}">{{employee.last_name}}, {{employee.first_name}}</option>
+            <option value='{{employee.id}}'>{{employee.last_name}},
+              {{employee.first_name}}</option>
           {{/each}}
         </select>
       </div>
@@ -148,7 +155,7 @@
         <button
           type='button'
           class='btn'
-          data-bs-target='#update-employees-modal'
+          data-bs-target='#update-employees-modal{{@index}}'
           data-bs-toggle='modal'
         >Go to update role</button>
       </div>
@@ -157,12 +164,14 @@
 </div>
 <div
   class='modal fade'
-  id='view-employees-modal'
+  id='update-employees-modal{{@index}}'
   tabindex='-1'
   aria-labelledby='add-employees-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='add-employees-modal-title'>Update an
@@ -176,7 +185,8 @@
       </div>
       <div class='modal-body'>
         <div class='mb-3 row'>
-          <label for='employee-first-name' class='col-form-label'>First name</label>
+          <label for='employee-first-name-update' class='col-form-label'>First
+            name</label>
           <input
             type='text'
             class='form-control'
@@ -184,7 +194,8 @@
           />
         </div>
         <div class='mb-3 row'>
-          <label for='employee-last-name' class='col-form-label'>Last name</label>
+          <label for='employee-last-name-update' class='col-form-label'>Last
+            name</label>
           <input
             type='text'
             class='form-control'
@@ -192,25 +203,29 @@
           />
         </div>
         <div class='mb-3 row'>
-          <label for='employee-role' class='col-form-label'>Last name</label>
+          <label for='employee-role-update' class='col-form-label'>Role</label>
           <select class='form-select' id='employee-role-update'>
             {{#each role}}
-              <option value="{{role.id}}">{{role.name}}</option>
+              <option value='{{role.id}}'>{{role.name}}</option>
             {{/each}}
           </select>
         </div>
         <div class='mb-3 row'>
-          <label for='employee-primary-venue' class='col-form-label'>Last name</label>
+          <label
+            for='employee-primary-venue-update'
+            class='col-form-label'
+          >Primary Venue</label>
           <select class='form-select' id='employee-primary-venue-update'>
             {{#each venue}}
-              <option value="{{venue.id}}">{{venue.name}}</option>
+              <option value='{{venue.id}}'>{{venue.name}}</option>
             {{/each}}
           </select>
         </div>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Update employee</button>
+        <button type='button' class='btn' id='update-employee-btn'>Update
+          employee</button>
       </div>
     </div>
   </div>
@@ -224,11 +239,13 @@
   aria-labelledby='remove-employees-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='remove-employees-modal-title'>Remove
-          Employee(s)</h5>
+          Employee</h5>
         <button
           type='button'
           class='btn-close'
@@ -237,16 +254,17 @@
         ></button>
       </div>
       <div class='modal-body'>
-        {{#each employee}}
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="employee-delete-{{employee.id}}"></input>
-            <label for="employee-delete-{{employee.id}}" class="form-check-label">{{employee.last_name}}, {{employee.first_name}}</label>
-          </div>
-        {{/each}}
+        <select class='form-select'>
+          {{#each employee}}
+            <option value='{{employee.id}}'>{{employee.last_name}},
+              {{employee.first_name}}</option>
+          {{/each}}
+        </select>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Remove employee(s)</button>
+        <button type='button' class='btn' id='remove-employee-btn'>Remove
+          employee</button>
       </div>
     </div>
   </div>

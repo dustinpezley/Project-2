@@ -91,7 +91,7 @@
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Add role</button>
+        <button type='button' class='btn' id='add-role-btn'>Add role</button>
       </div>
     </div>
   </div>
@@ -179,7 +179,7 @@
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Update role</button>
+        <button type='button' class='btn' id='update-role-btn'>Update role</button>
       </div>
     </div>
   </div>
@@ -206,24 +206,15 @@
         ></button>
       </div>
       <div class='modal-body'>
-        {{#each role}}
-          <div class='form-check form-switch'>
-            <input
-              class='form-check-input'
-              type='checkbox'
-              role='switch'
-              id='role-delete-{{role.id}}'
-            />
-            <label
-              class='form-check-label'
-              for='role-delete-{{role.id}}'
-            >{{role.name}}</label>
-          </div>
-        {{/each}}
+        <select class='form-select'>
+          {{#each role}}
+            <option value='{{role.id}}'>{{role.name}}</option>
+          {{/each}}
+        </select>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Remove role(s)</button>
+        <button type='button' class='btn' id='remove-role-btn'>Remove role</button>
       </div>
     </div>
   </div>
