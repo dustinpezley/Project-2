@@ -26,6 +26,31 @@ router.get('/', (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
+router.get('/', (req, res) => { // get all shows by venue
+  Shows.findAll({
+    where: {
+      venue_id: req.params.venue_id
+    },
+    attributes: ['performance_date', 'performance_time', 'id', 'talent_id', 'venue_id'],
+    order: [
+      ['performance_date', 'ASC'],
+      ['performance_time', 'ASC'],
+    ],
+    include: [
+      {
+        model: Venue,
+        attributes: ['name', 'address', 'amentities'],
+      },
+      {
+        model: Talent,
+        attributes: ['title'],
+      },
+    ],
+  })
+  .then((dbShowsData) => res.json(dbShowsData))
+  .catch((err) => res.status(500).json(err));
+})
+
 // Get one show
 router.get('/:id', (req, res) => {
   Shows.findOne({
