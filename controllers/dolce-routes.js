@@ -5,6 +5,7 @@ const { Shows, Venue, Talent } = require('../models');
 // Get all shows for Dolce
 router.get('/', (req, res) => {
   const currentDate = new Date().toISOString().split('T')[0];
+  console.log(currentDate);
   Shows.findOne({
     where: {
       venue_id: 1,
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
       },
     },
     attributes: ['performance_date', 'performance_time'],
-    order: [['performance_date'], ['performance_time']],
+    order: ['performance_date', 'performance_time'],
     include: [
       {
         model: Venue,
@@ -26,14 +27,9 @@ router.get('/', (req, res) => {
     ],
   })
     .then((dbShowsData) => {
-      const shows = dbShowsData.map((show) => show.get({ plain: true }));
-      // const currentDate = new Date();
+      dbShowsData.get({ plain: true });
 
-      // const nextShow = shows.find(
-      //   // eslint-disable-next-line camelcase
-      //   (performance_date) => performance_date > currentDate
-      // );
-      res.render('dolce', { shows, title: 'Dolce' });
+      res.render('dolce', { dbShowsData, layout: 'main', title: 'Dolce' });
     })
     .catch((err) => {
       res.status(500).json(err);

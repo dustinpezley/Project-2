@@ -7,10 +7,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', (req, res) => {
   Shows.findAll({
     attributes: ['performance_date', 'performance_time'],
-    order: [
-      ['performance_date', 'ASC'],
-      ['performance_time', 'ASC'],
-    ],
+    order: [['performance_date'], ['performance_time']],
     include: [
       {
         model: Venue,
