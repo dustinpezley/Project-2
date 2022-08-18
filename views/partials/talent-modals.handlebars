@@ -6,7 +6,9 @@
   aria-labelledby='view-talent-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='view-talent-modal-title'>View Talent</h5>
@@ -44,7 +46,9 @@
   aria-labelledby='add-talent-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='add-talent-modal-title'>Add
@@ -71,7 +75,8 @@
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Add artist/performer/speaker</button>
+        <button type='button' class='btn' id='add-talent-btn'>Add
+          artist/performer/speaker</button>
       </div>
     </div>
   </div>
@@ -85,7 +90,9 @@
   aria-labelledby='select-talent-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='select-talent-modal-title'>Select an Artist
@@ -123,7 +130,9 @@
   aria-labelledby='update-talent-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='update-talent-modal-title'>Update an
@@ -155,7 +164,8 @@
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Update artist/performer/speaker</button>
+        <button type='button' class='btn' id='update-talent-btn'>Update
+          artist/performer/speaker</button>
       </div>
     </div>
   </div>
@@ -169,10 +179,12 @@
   aria-labelledby='remove-talent-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
-        <h5 class='modal-title' id='remove-talent-modal-title'>Remove Artist(s)</h5>
+        <h5 class='modal-title' id='remove-talent-modal-title'>Remove Artist</h5>
         <button
           type='button'
           class='btn-close'
@@ -181,24 +193,15 @@
         ></button>
       </div>
       <div class='modal-body'>
-        {{#each talent}}
-          <div class='form-check form-switch'>
-            <input
-              class='form-check-input'
-              type='checkbox'
-              role='switch'
-              id='talent-{{talent.id}}'
-            />
-            <label
-              class='form-check-label'
-              for='talent-{{talent.id}}'
-            >{{talent.title}}</label>
-          </div>
-        {{/each}}
+        <select class='form-select'>
+          {{#each talent}}
+            <option value='{{talent.id}}'>{{talent.title}}</option>
+          {{/each}}
+        </select>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Remove artist(s)</button>
+        <button type='button' class='btn' id='remove-talent-btn'>Remove artist</button>
       </div>
     </div>
   </div>

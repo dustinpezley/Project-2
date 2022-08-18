@@ -3,10 +3,10 @@ const { User, Employee, Role, Venue } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all employees
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
   Employee.findAll({
     attributes: ['first_name', 'last_name'],
-    order: ['last_name', 'ASC'],
+    order: ['last_name'],
     include: [
       {
         model: User,
