@@ -25,7 +25,7 @@
   </head>
   <body>
     {{! menu items held off-canvas }}
-    <div
+    <header
       class='offcanvas offcanvas-start text-bg-dark'
       data-bs-scroll='true'
       tabindex='-1'
@@ -84,30 +84,18 @@
             /></a>
         </div>
         <div class='dropdown-center mt-3 text-center'>
-          <button
-            type='button'
-            class='btn dropdown-toggle btn-lg'
+          <a
+            class='btn btn-lg'
             id='calendar-button'
-            data-bs-toggle='dropdown'
             aria-expanded='false'
-          >Upcoming shows</button>
-          <ul class='dropdown-menu overflow-visible dropdown-menu-dark'>
-            <li><a class='dropdown-item' href='dolce/calendar'>Dolce</a></li>
-            <li><a
-                class='dropdown-item'
-                href='/modular/calendar'
-              >Modular</a></li>
-            <li><a
-                class='dropdown-item'
-                href='/harmony/calendar'
-              >Harmony</a></li>
-          </ul>
+            href='/calendar'
+          >Upcoming shows</a>
         </div>
         <div class='text-right flex-end'>
           <a href='/login' class='text-decoration-none text-light'>Admin</a>
         </div>
       </div>
-    </div>
+    </header>
     {{! everything not in the menu, including the menu button }}
     <main>
       <div class='off-canvas-content'>
@@ -126,7 +114,9 @@
             hover
             loop
           ></lottie-player></button>
-        {{{body}}}
+        <div>
+          {{{body}}}
+        </div>
       </div>
     </main>
     <script

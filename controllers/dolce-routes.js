@@ -8,10 +8,14 @@ router.get('/', (req, res) => {
   console.log(currentDate);
   Shows.findOne({
     where: {
-      venue_id: 1,
-      performance_date: {
-        [Op.gte]: currentDate,
-      },
+      [Op.and]: [
+        { venue_id: 1 },
+        {
+          performance_date: {
+            [Op.gte]: currentDate,
+          },
+        },
+      ],
     },
     attributes: ['performance_date', 'performance_time'],
     order: ['performance_date', 'performance_time'],
@@ -29,7 +33,7 @@ router.get('/', (req, res) => {
     .then((dbShowsData) => {
       dbShowsData.get({ plain: true });
 
-      res.render('dolce', { dbShowsData, layout: 'main', title: 'Dolce' });
+      res.render('dolce', { dbShowsData, title: 'Dolce' });
     })
     .catch((err) => {
       res.status(500).json(err);

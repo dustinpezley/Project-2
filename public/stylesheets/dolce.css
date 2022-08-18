@@ -48,7 +48,7 @@ body {
 /* MENU STYLING END */
 
 .next-show-info-container {
-  background-color: var(--white);
+  background-color: var(--red);
   height: 20vh;
 }
 
@@ -139,7 +139,7 @@ body {
 /* BACKGROUND IMAGE END */
 
 .calendar-button-container {
-  background-color: var(--white);
+  background-color: var(--red);
   height: 33vh;
   margin-top: 15vh;
 }
