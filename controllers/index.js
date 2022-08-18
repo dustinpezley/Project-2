@@ -2,8 +2,10 @@ const router = require('express').Router();
 
 const apiRoutes = require('./api');
 const polyrhythmRoutes = require('./polyrhythm-routes');
+const dolceRoutes = require('./dolce-routes');
 
-router.use('/polyrhythm', polyrhythmRoutes);
+router.use('/', polyrhythmRoutes);
+router.use('/dolce', dolceRoutes);
 router.use('/api', apiRoutes);
 
 // router.use((req, res) => {

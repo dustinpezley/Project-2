@@ -1,0 +1,205 @@
+{{! View Talent }}
+<div
+  class='modal fade'
+  id='view-talent-modal'
+  tabindex='-1'
+  aria-labelledby='view-talent-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='view-talent-modal-title'>View Talent</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='card'>
+          <div class='card-header text-center'>
+            Artist/performer Name
+          </div>
+          <ul class='list-group list-group-flush'>
+            {{#each talent}}
+              <li class='list-group-item text-center'>{{talent.title}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Add role }}
+<div
+  class='modal fade'
+  id='add-talent-modal'
+  tabindex='-1'
+  aria-labelledby='add-talent-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='add-talent-modal-title'>Add
+          artist/performer/speaker</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='talent-name' class='col-form-label'>Artist name</label>
+          <input type='text' class='form-control' id='talent-name' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='talent-image-link' class='col-form-label'>Image link</label>
+          <input type='url' class='form-control' id='talent-image-link' />
+          <div class='form-text mt-0 pt-0 lh-1 mb2' id='url-info'>Please use a
+            permanent link to an image in the public domain unless provided by
+            artist.</div>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Add artist/performer/speaker</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Update role }}
+<div
+  class='modal fade'
+  id='select-talent-modal'
+  tabindex='-1'
+  aria-labelledby='select-talent-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='select-talent-modal-title'>Select an Artist
+          to Update</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <select id='talent-select-update' class='form-select pe-0'>
+          {{#each talent}}
+            <option vlaue='{{talent.id}}'>{{talent.title}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button
+          type='button'
+          class='btn'
+          data-bs-target='#update-talent-modal'
+          data-bs-toggle='modal'
+        >Go to update artist</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class='modal fade'
+  id='update-talent-modal'
+  tabindex='-1'
+  aria-labelledby='update-talent-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='update-talent-modal-title'>Update an
+          artist/performer/speaker</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='talent-name-update' class='col-form-label'>Artist name</label>
+          <input type='text' class='form-control' id='talent-name-update' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='talent-image-link-update' class='col-form-label'>Image
+            link</label>
+          <input
+            type='url'
+            class='form-control'
+            id='talent-image-link-update'
+          />
+          <div class='form-text mt-0 pt-0 lh-1 mb2' id='url-info-update'>Please
+            use a permanent link to an image in the public domain unless
+            provided by artist.</div>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Update artist/performer/speaker</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Remove employees }}
+<div
+  class='modal fade'
+  id='remove-talent-modal'
+  tabindex='-1'
+  aria-labelledby='remove-talent-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='remove-talent-modal-title'>Remove Artist(s)</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        {{#each talent}}
+          <div class='form-check form-switch'>
+            <input
+              class='form-check-input'
+              type='checkbox'
+              role='switch'
+              id='talent-{{talent.id}}'
+            />
+            <label
+              class='form-check-label'
+              for='talent-{{talent.id}}'
+            >{{talent.title}}</label>
+          </div>
+        {{/each}}
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Remove artist(s)</button>
+      </div>
+    </div>
+  </div>
+</div>

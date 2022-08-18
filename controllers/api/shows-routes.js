@@ -8,13 +8,13 @@ router.get('/', (req, res) => {
   Shows.findAll({
     attributes: ['performance_date', 'perfomance_time'],
     order: [
-      ['performance_date', 'DESC'],
-      ['performance_time', 'DESC'],
+      ['performance_date', 'ASC'],
+      ['performance_time', 'ASC'],
     ],
     include: [
       {
         model: Venue,
-        attributes: ['name', 'address', 'amentities'],
+        attributes: ['name', 'address', 'capacity'],
       },
       {
         model: Talent,

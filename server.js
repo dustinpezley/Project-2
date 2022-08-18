@@ -37,9 +37,9 @@ const routes = require('./controllers');
 // turn on routes
 app.use(routes);
 
-app.get('/', (req, res) => {
-  res.render('polyrhythm', { layout: 'main' });
-});
+// app.get('/', (req, res) => {
+//   res.render('polyrhythm', { layout: 'main' });
+// });
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
