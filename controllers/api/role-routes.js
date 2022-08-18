@@ -20,7 +20,9 @@ router.get(`/`, withAuth, (req, res) => {
     .then((dbRoleData) => res.json(dbRoleData))
     .catch((err) => {
       res.status(500).json(err);
-});
+    });
+})
+
 
 // Get single role
 router.get("/:id", withAuth, (req, res) => {
