@@ -29,7 +29,7 @@ Employee.init(
     },
     primary_venue: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'venue',
         key: 'id',
