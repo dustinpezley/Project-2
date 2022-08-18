@@ -63,4 +63,4 @@ Employee.belongsTo(User, {
   foreignKey: 'employee_id',
 });
 
-module.exports = { User, Venue, Talent, Sales, Role, Employee };
+module.exports = { User, Venue, Talent, Sales, Role, Employee, Shows };

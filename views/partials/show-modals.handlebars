@@ -1,0 +1,240 @@
+{{! View Shows }}
+<div
+  class='modal fade'
+  id='view-show-modal'
+  tabindex='-1'
+  aria-labelledby='view-show-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='view-show-modal-title'>View Shows</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='card'>
+          <div class='card-header'>
+            <div class='row'>
+              <p class='col-3 text-center lh-1 pb-0'>Artist</p>
+              <p class='col-3 text-center lh-1 pb-0'>Venue</p>
+              <p class='col-3 text-center lh-1 pb-0'>Date</p>
+              <p class='col-3 text-center lh-1 pb-0'>Time</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Add show }}
+<div
+  class='modal fade'
+  id='add-show-modal'
+  tabindex='-1'
+  aria-labelledby='add-show-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='add-show-modal-title'>Add a Show</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='add-show-talent' class='col-form-label'>Artist</label>
+          <select id='add-show-talent' class='form-select'>
+            {{#each talent}}
+              <option value='{{talent.id}}'>{{talent.title}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='add-show-venue' class='col-form-label'>Venue</label>
+          <select id='add-show-venue' class='form-select'>
+            {{#each venue}}
+              <option value='{{venue.id}}'>{{venue.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='add-show-date' class='col-form-label'>Date</label>
+          <input type='date' id='add-show-date' class='form-control' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='add-show-time' class='col-form-label'>Time</label>
+          <input type='time' id='add-show-time' class='form-control' />
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Add show</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Update show }}
+<div
+  class='modal fade'
+  id='select-show-modal'
+  tabindex='-1'
+  aria-labelledby='select-show-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='select-show-modal-title'>Select a Show to
+          Update</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='select-show-update' class='col-form-label'>Artist</label>
+          <select id='select-show-update' class='form-select'>
+            {{#each shows}}
+              <option value='{{show.id}}'>
+                <div class='row'>
+                  <p class='mb-0 pb-0 lh-1'>{{talent.title}}</p>
+                  <p class='mb-0 pb-0 lh-1'>{{venue.name}}</p>
+                  <p class='mb-0 pb-0 lh-1'>{{shows.performance_date}}</p>
+                  <p class='mb-0 pb-0 lh-1'>{{shows.performance_time}}</p>
+                </div>
+              </option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button
+          type='button'
+          class='btn'
+          data-bs-target='#update-show-modal'
+          data-bs-toggle='modal'
+        >Go to update show</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class='modal fade'
+  id='update-show-modal'
+  tabindex='-1'
+  aria-labelledby='update-show-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='update-show-modal-title'>Update a Show</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='add-show-talent' class='col-form-label'>Artist</label>
+          <select id='add-show-talent' class='form-select'>
+            {{#each talent}}
+              <option value='{{talent.id}}'>{{talent.title}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='add-show-venue' class='col-form-label'>Venue</label>
+          <select id='add-show-venue' class='form-select'>
+            {{#each venue}}
+              <option value='{{venue.id}}'>{{venue.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='add-show-date' class='col-form-label'>Date</label>
+          <input type='date' id='add-show-date' class='form-control' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='add-show-time' class='col-form-label'>Time</label>
+          <input type='time' id='add-show-time' class='form-control' />
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Update artist/performer/speaker</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Remove shows }}
+<div
+  class='modal fade'
+  id='remove-show-modal'
+  tabindex='-1'
+  aria-labelledby='remove-show-modal-title'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='remove-show-modal-title'>Remove Show(s)</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        {{#each show}}
+          <div class='form-check form-switch'>
+            <input
+              class='form-check-input'
+              type='checkbox'
+              role='switch'
+              id='show-delete-{{show.id}}'
+            />
+            <label
+              for='show-delete-{{show.id}}'
+              class='form-check-label'
+            >{{talent.title}}
+              at
+              {{venue.name}}
+              on
+              {{shows.performance_date}}
+              at
+              {{shows.performance_time}}</label>
+          </div>
+        {{/each}}
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn'>Remove show(s)</button>
+      </div>
+    </div>
+  </div>
+</div>

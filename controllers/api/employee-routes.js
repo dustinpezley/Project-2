@@ -6,6 +6,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', withAuth, (req, res) => {
   Employee.findAll({
     attributes: ['first_name', 'last_name'],
+    order: ['last_name', 'ASC'],
     include: [
       {
         model: User,
@@ -116,3 +117,5 @@ router.delete('/:id', withAuth, (req, res) => {
     })
     .catch((err) => res.status(500).json(err));
 });
+
+module.exports = router;
