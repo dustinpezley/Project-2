@@ -49,7 +49,11 @@ router.get("/:id", withAuth, (req, res) => {
         return;
       }
 
+<<<<<<< HEAD
       res.json(dbRoleData);
+=======
+      res.json(dbEmployeeData);
+>>>>>>> feature/routes-index
     })
     .catch((err) => {
       res.status(500).json(err);
@@ -71,13 +75,22 @@ router.put("/:id", withAuth, (req, res) => {
       },
     }
   )
+<<<<<<< HEAD
     .then((dbRoleData) => {
       if (!dbRoleData) {
+=======
+    .then((dbEmployeeData) => {
+      if (!dbEmployeeData) {
+>>>>>>> feature/routes-index
         res.status(404).json({ message: "Role not found" });
         return;
       }
 
+<<<<<<< HEAD
       res.json(dbRoleData);
+=======
+      res.json(dbEmployeeData);
+>>>>>>> feature/routes-index
     })
     .catch((err) => res.status(500).json(err));
 });
@@ -95,7 +108,11 @@ router.delete("/:id", withAuth, (req, res) => {
         return;
       }
 
+<<<<<<< HEAD
       res.json(dbRoleData);
+=======
+      res.json(dbEmployeeData);
+>>>>>>> feature/routes-index
     })
     .catch((err) => res.status(500).json(err));
 });
