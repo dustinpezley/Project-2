@@ -1,0 +1,61 @@
+<link rel='stylesheet' href='/stylesheets/harmony.css' />
+
+<div class="container-fluid overflow-hidden">
+  <div class="row justify-content-center align-items-center logo-container bg-dark">
+    <div class="col-6 logo position-relative">
+      <lottie-player class="overflow-hidden position-absolute" id="polyrhythm-motion-sound" src="/assets/json/Polyrhythm-motion.json" mode="normal" background="transparent"  speed="1"  loop  autoplay></lottie-player>
+      <img  class="pt-5 pb-5 position-relative" id="polyrhythm-logo" src="/assets/images/Polyrhythm-no-art.png" alt="Polyrhythm logo">
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center info-container text-light shadow">
+    {{> info-text}}
+    <ul class="slideshow">
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+    </ul>
+  </div>
+  <div class="row justify-content-center align-items-center contact-container text-bg-dark">
+    <div class="col-6 contact-form pt-5">
+      <form action="mailto:contact@polyrhythm.com">
+        <div class="mb-3 form-floating">
+          <input type="email" class="form-control" id="contact-from-email" aria-describedBy="contact-from-help" placeholder="name@example.com" autofocus="autofocus">
+          <label for="contact-from-email">From:</label>
+          <div class="form-text mt-0 pt-0 lh-1 mb-2" id="contact-from-help">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3 form-floating">
+          <input type="text" class="form-control" id="contact-subject">
+          <label for="contact-subject">Subject:</label>
+        </div>
+        <div class="mb-3 form-floating to-email">
+          <input type="email" readonly class="form-control-plaintext" id="contact-to-email" value="contact@polyrhythm.com">
+          <label for="contact-to-email">To:</label>
+        </div>
+        <div class="mb-3 form-floating">
+          <input type="date" class="form-control" id="contact-event-date">
+          <label for="contact-event-date">Date requested:</label>
+        </div>
+        <div class="mb-3 form-floating">
+          <select id="contact-capacity" class="form-select pe-0">
+            <option selected>How many people do you expect?</option>
+            <option value="1">1 - 500</option>
+            <option value="2">501 - 4,000</option>
+            <option value="3">4,001+</option>
+          </select>
+          <label for="contact-capacity">Number of attendees expected:</label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Ask about your next event here!" id="contact-body"></textarea>
+          <label for="contact-body">Details:</label>
+        </div>
+        <button type="submit" class="btn" id="contact-btn">Contact us</button>
+      </form>
+    </div>
+  </div>
+  {{> footer }}
+</div>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

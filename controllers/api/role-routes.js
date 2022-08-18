@@ -1,11 +1,9 @@
 const router = require("express").Router();
 const { User, Employee, Role, Venue } = require("../../models");
-const Role = require("../../models/Role");
 const withAuth = require("../../utils/auth");
 
 // Get all roles
-router
-  .get(`/`, withAuth, (req, res) => {
+router.get(`/`, withAuth, (req, res) => {
     Role.findAll({
       attributes: ["id", "name", "salary-rate", "salary"],
       include: [
@@ -18,12 +16,11 @@ router
           attributes: ["name"],
         },
       ],
-    }).then;
-  })
-  .then((dbRoleData) => res.json(dbRoleData))
-  .catch((err) => {
-    res.status(500).json(err);
-  });
+    })  
+    .then((dbRoleData) => res.json(dbRoleData))
+    .catch((err) => {
+      res.status(500).json(err);
+});
 
 // Get single role
 router.get("/:id", withAuth, (req, res) => {
