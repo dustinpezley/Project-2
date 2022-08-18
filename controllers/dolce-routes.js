@@ -1,17 +1,24 @@
+const { Op } = require('sequelize');
 const router = require('express').Router();
 const { Shows, Venue, Talent } = require('../models');
 
 // Get all shows for Dolce
 router.get('/', (req, res) => {
-  Shows.findAll({
+  const currentDate = new Date().toISOString().split('T')[0];
+  console.log(currentDate);
+  Shows.findOne({
     where: {
-      venue_id: 1,
+      [Op.and]: [
+        { venue_id: 1 },
+        {
+          performance_date: {
+            [Op.gte]: currentDate,
+          },
+        },
+      ],
     },
     attributes: ['performance_date', 'performance_time'],
-    order: [
-      ['performance_date', 'ASC'],
-      ['performance_time', 'ASC'],
-    ],
+    order: ['performance_date', 'performance_time'],
     include: [
       {
         model: Venue,
@@ -24,8 +31,9 @@ router.get('/', (req, res) => {
     ],
   })
     .then((dbShowsData) => {
-      const shows = dbShowsData.map((show) => show.get({ plain: true }));
-      res.render('dolce', { shows });
+      dbShowsData.get({ plain: true });
+
+      res.render('dolce', { dbShowsData, title: 'Dolce' });
     })
     .catch((err) => {
       res.status(500).json(err);

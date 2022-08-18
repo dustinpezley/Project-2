@@ -6,7 +6,9 @@
   aria-labelledby='view-roles-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='view-roles-modal-title'>View Roles</h5>
@@ -56,7 +58,9 @@
   aria-labelledby='add-roles-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='add-roles-modal-title'>Add a Role</h5>
@@ -87,7 +91,7 @@
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Add role</button>
+        <button type='button' class='btn' id='add-role-btn'>Add role</button>
       </div>
     </div>
   </div>
@@ -101,7 +105,9 @@
   aria-labelledby='select-roles-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='select-roles-modal-title'>Select a Role to
@@ -139,7 +145,9 @@
   aria-labelledby='update-roles-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='update-roles-modal-title'>Update a Role</h5>
@@ -171,7 +179,7 @@
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Update role</button>
+        <button type='button' class='btn' id='update-role-btn'>Update role</button>
       </div>
     </div>
   </div>
@@ -184,7 +192,9 @@
   aria-labelledby='remove-roles-modal-title'
   aria-hidden='true'
 >
-  <div class='modal-dialog modal-dialog-centered modal-dialog-scrollable'>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
     <div class='modal-content'>
       <div class='modal-header'>
         <h5 class='modal-title' id='remove-roles-modal-title'>Remove Role(s)</h5>
@@ -196,24 +206,15 @@
         ></button>
       </div>
       <div class='modal-body'>
-        {{#each role}}
-          <div class='form-check form-switch'>
-            <input
-              class='form-check-input'
-              type='checkbox'
-              role='switch'
-              id='role-delete-{{role.id}}'
-            />
-            <label
-              class='form-check-label'
-              for='role-delete-{{role.id}}'
-            >{{role.name}}</label>
-          </div>
-        {{/each}}
+        <select class='form-select'>
+          {{#each role}}
+            <option value='{{role.id}}'>{{role.name}}</option>
+          {{/each}}
+        </select>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
-        <button type='button' class='btn'>Remove role(s)</button>
+        <button type='button' class='btn' id='remove-role-btn'>Remove role</button>
       </div>
     </div>
   </div>

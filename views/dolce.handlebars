@@ -1,27 +1,36 @@
-<div class='container-fluid overflow-hidden'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link rel='stylesheet' href='/stylesheets/dolce.css' />
+
+<div class='container-fluid overflow-hidden align-items-evenly'>
   <div
     class='row justify-content-center align-items-center next-show-info-container'
   >
     <div class='next-show-info col-8'>
-      {{#with talent}}
-
-        {{! will need to populate talent table with image references to github permalinks in order to fully render }}
-        <div class='col-2 artist-image'>
-          {{! image reference here }}
-        </div>
         <div class='col-6 artist-info'>
-          <p class='show-date'>{{format_date shows.0.performace_date}}</p>
+          <p class='show-date'>{{format_date shows.performance_date}}</p>
           <h2 class='artist-name'>{{talent.title}}</h2>
         </div>
-      {{/with}}
     </div>
   </div>
   <div class='row justify-content-between align-items-center info-container'>
-    <div class='info col-6'>
+    <div class='info col-8 justify-content-center rounded'>
       {{> info-text}}
+      <ul class="slideshow">
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+      </ul>
     </div>
-    <div class="col-2 logo-container">
-      <img src="/public/assets/images/Dolce.png" alt="Dolce logo" class="logo" id="dolce">
+    <div class="col-2 logo-container rounded-start">
+      <img src="/assets/images/Dolce.png" alt="Dolce logo" class="logo ps-3 pt-3 pb-3" id="dolce">
     </div>
+  </div>
+  <div class="row justify-content-center align-items-center calendar-button-container">
+    <a href="/calendar" class="btn calendar-link col-2">Upcoming shows</a>
   </div>
 </div>
