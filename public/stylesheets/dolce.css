@@ -1,0 +1,152 @@
+:root {
+  --red: #dd6031;
+  --blue: #7798ab;
+  --white: #fdecef;
+  --black: #0f110c;
+  --purple: #612940;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--blue) transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 10px;
+  border: none;
+}
+
+body {
+  overflow: overlay;
+}
+/* SCROLLBAR END */
+
+/* MENU STYLING SPECIFIC TO PAGE */
+.dropdown-toggle {
+  background-color: transparent;
+  border: 3px solid #dc2b46;
+  border-radius: 10px;
+  color: white;
+}
+
+.dropdown-toggle:hover {
+  border: 3px solid white;
+  color: #dc2b46;
+}
+/* MENU STYLING END */
+
+.next-show-info-container {
+  background-color: var(--white);
+  height: 20vh;
+}
+
+.info-container {
+  height: 60vh;
+}
+
+.info {
+  color: var(--white);
+  background-color: var(--purple);
+  margin-left: 5vw;
+}
+
+.logo-container {
+  background-color: var(--black);
+}
+
+/* BACKGROUND IMAGE SLIDESHOW */
+.slideshow {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.slideshow,
+.slideshow:after {
+  top: 18vh;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: -20px;
+  z-index: -1;
+}
+
+.slideshow li span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  color: transparent;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: -1;
+  animation: imageAnimation 30s linear infinite 0s;
+}
+
+.slideshow li:nth-child(1) span {
+  background-image: url('../assets/images/Venues/Dolce\ -\ Artist\ 01\ -\ Saxophone.jpg');
+}
+.slideshow li:nth-child(2) span {
+  background-image: url('../assets/images/Venues/Dolce\ -\ Artist\ 04\ -\ Solo\ guitar\ artist.jpg');
+  animation-delay: 6s;
+}
+.slideshow li:nth-child(3) span {
+  background-image: url('../assets/images/Venues/Dolce\ -\ Event\ 04\ -\ Comedian.jpg');
+  animation-delay: 12s;
+}
+.slideshow li:nth-child(4) span {
+  background-image: url('../assets/images/Venues/Dolce\ -\ Event\ 01\ -\ Empty\ stage.jpg');
+  animation-delay: 18s;
+}
+.slideshow li:nth-child(5) span {
+  background-image: url('../assets/images/venues/Dolce\ -\ Artist\ 10\ -\ Small\ band.jpg');
+  animation-delay: 24s;
+}
+
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  8% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* BACKGROUND IMAGE END */
+
+.calendar-button-container {
+  background-color: var(--white);
+  height: 33vh;
+  margin-top: 15vh;
+}
+
+.calendar-link {
+  background-color: var(--blue);
+  color: var(--black);
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 3rem;
+}

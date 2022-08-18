@@ -1,56 +1,57 @@
 {{! Buttons to launch individual modals }}
-<div class='row justify-content-center employment-buttons'>
-  <div class='col-6 employee-buttons-container'>
-    <div class='flex-column justify-content-between employee-buttons'>
+<div class="container-fluid vh-100 vw-100 bg-dark d-flex flex-column justify-content-center align-items-evenly">
+<div class='row employment-buttons'>
+  <div class='col-6 d-flex justify-content-center employee-buttons-container'>
+    <div class='d-flex flex-column employee-buttons col-4'>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3 text-no-wrap'
         data-bs-toggle='modal'
         data-bs-target='#view-employees-modal'
       >View employees</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#add-employees-modal'
       >Add an employee</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#select-employees-modal'
       >Update an employee</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3 mb-3'
         data-bs-toggle='modal'
         data-bs-target='#remove-employees-modal'
       >Remove an employee</button>
     </div>
   </div>
-  <div class='col-6 role-buttons-container'>
-    <div class='flex-column justify-content-between role-buttons'>
+  <div class='col-6 d-flex justify-content-center role-buttons-container'>
+    <div class='d-flex flex-column justify-content-between role-buttons col-4'>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#view-roles-modal'
       >View roles</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#add-roles-modal'
       >Add a role</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#select-roles-modal'
       >Update a role</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3 mb-3'
         data-bs-toggle='modal'
         data-bs-target='#remove-roles-modal'
       >Remove a role</button>
@@ -59,57 +60,57 @@
 </div>
 <hr />
 <div class='row justify-content-center talent-show-buttons'>
-  <div class='col-6 talent-buttons-container'>
-    <div class='flex-column justify-content-between talent-buttons'>
+  <div class='col-6 d-flex justify-content-center talent-buttons-container'>
+    <div class='d-flex flex-column justify-content-between talent-buttons col-4'>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#view-talent-modal'
       >View artists/performers/speakers</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#add-talent-modal'
       >Add an artist/preformer/speaker</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#select-talent-modal'
       >Update an artist/performer/speaker</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3 mb-3'
         data-bs-toggle='modal'
         data-bs-target='#remove-talent-modal'
       >Remove an artist/performer/speaker</button>
     </div>
   </div>
-  <div class='col-6 show-buttons-container'>
-    <div class='flex-column justify-content-between show-buttons'>
+  <div class='col-6 d-flex justify-content-center show-buttons-container'>
+    <div class='d-flex flex-column justify-content-between show-buttons col-4'>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#view-shows-modal'
       >View shows</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#add-show-modal'
       >Add a show</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3'
         data-bs-toggle='modal'
         data-bs-target='#select-show-modal'
       >Update a show</button>
       <button
         type='button'
-        class='btn'
+        class='btn btn-primary mt-3 mb-3'
         data-bs-toggle='modal'
         data-bs-target='#remove-show-modal'
       >Remove a show</button>
@@ -122,3 +123,8 @@
 {{> role-modals }}
 {{> talent-modals }}
 {{> show-modals }}
+{{> user-modal }}
+
+</div>
+
+<script src="/javascript/admin.js"></script>

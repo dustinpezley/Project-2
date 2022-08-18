@@ -25,7 +25,13 @@ router.get('/', (req, res) => {
   })
     .then((dbShowsData) => {
       const shows = dbShowsData.map((show) => show.get({ plain: true }));
-      res.render('dolce', { shows });
+      const currentDate = new Date().toISOString();
+
+      const nextShow = shows.find(
+        // eslint-disable-next-line camelcase
+        (performance_date) => performance_date > currentDate
+      );
+      res.render('dolce', { nextShow });
     })
     .catch((err) => {
       res.status(500).json(err);

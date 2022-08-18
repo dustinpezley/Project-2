@@ -7,4 +7,13 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/login', (req, res) => {
+  if (req.sessionStore.loggedIn) {
+    res.redirect('/admin');
+    return;
+  }
+
+  res.render('login');
+});
+
 module.exports = router;
