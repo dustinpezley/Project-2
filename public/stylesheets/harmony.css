@@ -1,9 +1,9 @@
 :root {
-  --red: #dd6031;
-  --blue: #7798ab;
-  --white: #fdecef;
-  --black: #0f110c;
-  --purple: #612940;
+  --red: #5a0001;
+  --blue: #757083;
+  --white: #f0eff4;
+  --black: #22181c;
+  --purple: #857e4f;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -113,7 +113,7 @@ body {
   animation-delay: 18s;
 }
 .slideshow li:nth-child(5) span {
-  background-image: url("../assets/images/venues/Dolce\ -\ Artist\ 10\ -\ Small\ band.jpg");
+  background-image: url("public/assets/images/Venues/Harmony - Event 02 - Comedian.jpg");
   animation-delay: 24s;
 }
 
