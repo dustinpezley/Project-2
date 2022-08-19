@@ -1,13 +1,19 @@
 async function addRoleHandler(event) {
   event.preventDefault();
 
-  const roleName = document.getElementById('#role-name').value;
-  const salaryRate = document.getElementById('#role-salary-rate').text;
-  const salary = document.getElementById('#role-salary').value;
+  const roleName = document.getElementById('role-name').value;
+  const salaryRate = document.getElementById('role-salary-rate').value;
+  const salary = document.getElementById('role-salary').value;
 
-  const response = await fetch('api/shows', {
+  console.log(roleName, salaryRate, salary);
+  const response = await fetch('/api/role', {
     method: 'POST',
-    body: JSON.stringify(roleName, salaryRate, salary),
+    body: JSON.stringify({
+      name: roleName,
+      salary_rate: salaryRate,
+      // eslint-disable-next-line object-shorthand
+      salary: salary,
+    }),
     headers: { 'Content-Type': 'application/json' },
   });
 

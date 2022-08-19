@@ -26,7 +26,7 @@
           </div>
           <ul class='list-group list-group-flush'>
             {{#each talent}}
-              <li class='list-group-item text-center'>{{talent.title}}</li>
+              <li class='list-group-item text-center'>{{title}}</li>
             {{/each}}
           </ul>
         </div>
@@ -107,7 +107,7 @@
       <div class='modal-body'>
         <select id='talent-select-update' class='form-select pe-0'>
           {{#each talent}}
-            <option vlaue='{{talent.id}}'>{{talent.title}}</option>
+            <option vlaue='{{id}}'>{{title}}</option>
           {{/each}}
         </select>
       </div>
@@ -193,9 +193,9 @@
         ></button>
       </div>
       <div class='modal-body'>
-        <select class='form-select'>
+        <select class='form-select' id='talent-remove-id'>
           {{#each talent}}
-            <option value='{{talent.id}}'>{{talent.title}}</option>
+            <option value='{{id}}'>{{title}}</option>
           {{/each}}
         </select>
       </div>

@@ -1,9 +1,9 @@
 async function deleteRoleHandler(event) {
   event.preventDefault();
 
-  const id = event.target.value;
+  const id = document.getElementById('role-remove-id').value;
 
-  const response = await fetch(`api/role/${id}`, {
+  const response = await fetch(`/api/role/${id}`, {
     method: 'DELETE',
   });
 

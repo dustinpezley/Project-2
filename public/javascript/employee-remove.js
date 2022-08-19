@@ -1,9 +1,9 @@
 async function deleteEmployeeHandler(event) {
   event.preventDefault();
 
-  const id = event.target.value;
+  const id = document.getElementById('employee-remove-id').value;
 
-  const response = await fetch(`api/employees/${id}`, {
+  const response = await fetch(`/api/employees/${id}`, {
     method: 'DELETE',
   });
 

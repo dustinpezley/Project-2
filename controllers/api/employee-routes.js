@@ -65,17 +65,19 @@ router.get('/:id', withAuth, (req, res) => {
 
 // Add a new employee
 router.post('/', withAuth, (req, res) => {
+  console.log(req.body);
   Employee.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     role_id: req.body.role_id,
+    primary_venue: req.body.primary_venue,
   })
     .then((dbEmployeeData) => res.json(dbEmployeeData))
     .catch((err) => res.status(500).json(err));
 });
 
 // Update employee information
-router.put('/', withAuth, (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   Employee.update(
     {
       first_name: req.body.first_name,
@@ -85,7 +87,7 @@ router.put('/', withAuth, (req, res) => {
     },
     {
       where: {
-        id: req.body.id,
+        id: req.params.id,
       },
     }
   )

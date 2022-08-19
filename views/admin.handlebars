@@ -95,7 +95,7 @@
         type='button'
         class='btn btn-primary mt-3'
         data-bs-toggle='modal'
-        data-bs-target='#view-shows-modal'
+        data-bs-target='#view-show-modal'
       >View shows</button>
       <button
         type='button'
@@ -117,16 +117,23 @@
       >Remove a show</button>
     </div>
   </div>
+  <div class="col-8 justify-content-center d-flex mt-5">
+    <button id="logout" class="btn btn-danger col-4">Logout</button>
+  </div>
 </div>
 
 {{! Modals for each targeted by ID }}
 
-
+{{!-- {{#each dbData}}
+<div>{{this}}</div>
+{{/each}} --}}
+{{#with namedData}}
 {{> employee-modals }}
 {{> role-modals }}
 {{> talent-modals }}
 {{> show-modals }}
 {{> user-modal }}
+{{/with}}
 
 
 
