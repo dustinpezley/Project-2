@@ -1,0 +1,24 @@
+/* FORM */
+.form-floating input {
+  background-color: white;
+}
+
+.form-floating input:focus {
+  background-color: white;
+  border: 3px solid #dc2b46;
+}
+
+.form-floating input:hover {
+  cursor: #dc2b46;
+}
+
+.btn {
+  background-color: #dc2b46;
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  color: #dc2b46;
+}
+/* FORM END */

@@ -1,0 +1,39 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link rel='stylesheet' href='/stylesheets/dolce.css' />
+
+<div class='container-fluid overflow-hidden align-items-evenly'>
+  <div
+    class='row justify-content-center align-items-center next-show-info-container'
+  >
+    <div class="description col-2">Next up!</div>
+    <div class='next-show-info col-4 card text-center'>
+        <div class='col-6 artist-info card-body'>
+          <p class='show-date col-6'>{{format_date shows.performance_date}}</p>
+          <h2 class='artist-name w-100'>{{shows.talent.title}}</h2>
+        </div>
+    </div>
+  </div>
+  <div class='row justify-content-between align-items-center info-container'>
+    <div class='info col-8 align-self-end justify-content-center rounded'>
+      {{> info-text}}
+      <ul class="slideshow">
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+      </ul>
+    </div>
+    <div class="col-3 logo-container align-self-start rounded-start ">
+      <img src="/assets/images/Dolce.png" alt="Dolce logo" class="logo ps-3 pt-3 pb-3" id="dolce">
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center calendar-button-container">
+    <a href="/calendar" class="btn calendar-link col-2">Upcoming shows</a>
+  </div>
+</div>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

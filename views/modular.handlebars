@@ -1,0 +1,32 @@
+<link rel='stylesheet' href='/stylesheets/modular.css' />
+
+<div class="container-fluid overflow-hidden">
+  <div class="row info-container justify-content-around align-items-center">
+    <div>
+      {{> info-text}}
+      <ul class="slideshow">
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row logo-container justify-content-between align-items-center">
+    <div>
+       <img src="/public/assets/images/Modular.png" alt="Modular logo" class="logo" id="modular">
+    </div>
+  </div>
+  <div class="row next-shows-container">
+    {{#each shows as |show|}}
+      <div class="col show-card">
+          <div class="show-information">
+            <h3>{{show.talent.title}}</h3>
+            Date: {{show.performance_date}}
+            Time: {{show.performance_time}}
+          </div>
+      </div>
+      {{/each}}
+  </div>
+</div>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

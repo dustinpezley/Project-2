@@ -1,0 +1,221 @@
+{{! View roles }}
+<div
+  class='modal fade'
+  id='view-roles-modal'
+  tabindex='-1'
+  aria-labelledby='view-roles-modal-title'
+  aria-hidden='true'
+>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='view-roles-modal-title'>View Roles</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='card'>
+          <div class='card-header'>
+            <div class='row'>
+              <p class='col-6 text-center lh-1 pb-0'>Role</p>
+              <p class='col-3 text-center lh-1 pb-0'>Salary</p>
+              <p class='col-3 text-center lh-1 pb-0'>Rate</p>
+            </div>
+          </div>
+          <ul class='list-group list-group-flush'>
+            {{#each role}}
+              <div class='row'>
+                <li class='list-group-item col-6 text-center'>{{role.name}}</li>
+                <li
+                  class='list-group-item col-3 text-center'
+                >{{role.salary}}</li>
+                <li
+                  class='list-group-item col-3 text-center'
+                >{{role.salary_rate}}</li>
+              </div>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Add role }}
+<div
+  class='modal fade'
+  id='add-roles-modal'
+  tabindex='-1'
+  aria-labelledby='add-roles-modal-title'
+  aria-hidden='true'
+>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='add-roles-modal-title'>Add a Role</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='role-name' class='col-form-label'>Role name</label>
+          <input type='text' class='form-control' id='role-name' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='role-salary-rate' class='col-form-label'>Salary Rate</label>
+          <select class='form-select' id='role-salary-rate'>
+            <option value='1'>Hourly</option>
+            <option value='2'>Annually</option>
+            <option value='3'>Flat fee/One-time</option>
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='role-salary' class='col-form-label'>Salary</label>
+          <input type='number' class='form-control' id='role-salary' />
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn' id='add-role-btn'>Add role</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Update role }}
+<div
+  class='modal fade'
+  id='select-roles-modal'
+  tabindex='-1'
+  aria-labelledby='select-roles-modal-title'
+  aria-hidden='true'
+>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='select-roles-modal-title'>Select a Role to
+          Update</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <select id='role-select-update' class='form-select pe-0'>
+          {{#each role}}
+            <option value='{{role.id}}'>{{role.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button
+          type='button'
+          class='btn'
+          data-bs-target='#update-roles-modal'
+          data-bs-toggle='modal'
+        >Go to update role</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class='modal fade'
+  id='update-roles-modal'
+  tabindex='-1'
+  aria-labelledby='update-roles-modal-title'
+  aria-hidden='true'
+>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='update-roles-modal-title'>Update a Role</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <div class='mb-3 row'>
+          <label for='role-name-update' class='col-form-label'>Role name</label>
+          <input type='text' class='form-control' id='role-name-update' />
+        </div>
+        <div class='mb-3 row'>
+          <label for='role-salary-rate-update' class='col-form-label'>Salary
+            Rate</label>
+          <select class='form-select' id='role-salary-rate-update'>
+            <option value='1'>Hourly</option>
+            <option value='2'>Annually</option>
+            <option value='3'>Flat fee/One-time</option>
+          </select>
+        </div>
+        <div class='mb-3 row'>
+          <label for='role-salary-update' class='col-form-label'>Salary</label>
+          <input type='number' class='form-control' id='role-salary-update' />
+        </div>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn' id='update-role-btn'>Update role</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{! Remove employees }}
+<div
+  class='modal fade'
+  id='remove-roles-modal'
+  tabindex='-1'
+  aria-labelledby='remove-roles-modal-title'
+  aria-hidden='true'
+>
+  <div
+    class='modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl'
+  >
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h5 class='modal-title' id='remove-roles-modal-title'>Remove Role(s)</h5>
+        <button
+          type='button'
+          class='btn-close'
+          data-bs-dismiss='modal'
+          aria-label='Close'
+        ></button>
+      </div>
+      <div class='modal-body'>
+        <select class='form-select'>
+          {{#each role}}
+            <option value='{{role.id}}'>{{role.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn' id='remove-role-btn'>Remove role</button>
+      </div>
+    </div>
+  </div>
+</div>
