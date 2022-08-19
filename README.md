@@ -17,7 +17,7 @@ Use `npm i` to install all necessary Node packages.
 
 ## Usage
 Use like any other website. Admin functionality requires database entry on the back-end.
-[Title page screenshot](https://github.com/dustinpezley/polyrhythm-entertainment/blob/91c237c0041b5146ad3a63bbfa4434a540ec13ce/public/assets/images/Polyrhythm_screenshot.png)
+![Title page screenshot](https://github.com/dustinpezley/polyrhythm-entertainment/blob/91c237c0041b5146ad3a63bbfa4434a540ec13ce/public/assets/images/Polyrhythm_screenshot.png)
 
 ## Credits  
 This project was produced as a collaborative effort between myself and the following:  
