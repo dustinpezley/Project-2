@@ -29,6 +29,24 @@
               <p class='col-3 text-center lh-1 pb-0'>Time</p>
             </div>
           </div>
+          <ul class='list-group list-group-flush'>
+            {{#each shows}}
+              <div class='row'>
+                <li
+                  class='list-group-item col-3 text-center'
+                >{{talent.title}}</li>
+                <li
+                  class='list-group-item col-3 text-center'
+                >{{venue.name}}</li>
+                <li
+                  class='list-group-item col-3 text-center'
+                >{{performance_date}}</li>
+                <li
+                  class='list-group-item col-3 text-center'
+                >{{performance_time}}</li>
+              </div>
+            {{/each}}
+          </ul>
         </div>
       </div>
       <div class='modal-footer'>
@@ -64,15 +82,15 @@
           <label for='add-show-talent' class='col-form-label'>Artist</label>
           <select id='add-show-talent' class='form-select'>
             {{#each talent}}
-              <option value='{{talent.id}}'>{{talent.title}}</option>
+              <option value='{{id}}'>{{title}}</option>
             {{/each}}
           </select>
         </div>
         <div class='mb-3 row'>
           <label for='add-show-venue' class='col-form-label'>Venue</label>
           <select id='add-show-venue' class='form-select'>
-            {{#each venue}}
-              <option value='{{venue.id}}'>{{venue.name}}</option>
+            {{#each venues}}
+              <option value='{{id}}'>{{name}}</option>
             {{/each}}
           </select>
         </div>
@@ -120,12 +138,12 @@
           <label for='select-show-update' class='col-form-label'>Artist</label>
           <select id='select-show-update' class='form-select'>
             {{#each shows}}
-              <option value='{{show.id}}'>
+              <option value='{{id}}'>
                 <div class='row'>
                   <p class='mb-0 pb-0 lh-1'>{{talent.title}}</p>
                   <p class='mb-0 pb-0 lh-1'>{{venue.name}}</p>
-                  <p class='mb-0 pb-0 lh-1'>{{shows.performance_date}}</p>
-                  <p class='mb-0 pb-0 lh-1'>{{shows.performance_time}}</p>
+                  <p class='mb-0 pb-0 lh-1'>{{performance_date}}</p>
+                  <p class='mb-0 pb-0 lh-1'>{{performance_time}}</p>
                 </div>
               </option>
             {{/each}}
@@ -169,15 +187,15 @@
           <label for='update-show-talent' class='col-form-label'>Artist</label>
           <select id='update-show-talent' class='form-select'>
             {{#each talent}}
-              <option value='{{talent.id}}'>{{talent.title}}</option>
+              <option value='{{id}}'>{{title}}</option>
             {{/each}}
           </select>
         </div>
         <div class='mb-3 row'>
           <label for='update-show-venue' class='col-form-label'>Venue</label>
           <select id='update-show-venue' class='form-select'>
-            {{#each venue}}
-              <option value='{{venue.id}}'>{{venue.name}}</option>
+            {{#each venues}}
+              <option value='{{id}}'>{{name}}</option>
             {{/each}}
           </select>
         </div>
@@ -221,15 +239,15 @@
         ></button>
       </div>
       <div class='modal-body'>
-        <select class='form-select'>
-          {{#each show}}
-            <option value='{{show.id}}'>{{talent.title}}
+        <select class='form-select' id='show-remove-id'>
+          {{#each shows}}
+            <option value='{{id}}'>{{talent.title}}
               at
               {{venue.name}}
               on
-              {{shows.performance_date}}
+              {{performance_date}}
               at
-              {{shows.performance_time}}</option>
+              {{performance_time}}</option>
           {{/each}}
         </select>
       </div>

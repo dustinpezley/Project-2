@@ -1,15 +1,21 @@
 async function updateRoleHandler(event) {
   event.preventDefault();
 
-  const id = document.getElementById('#role-select-update').value;
+  const id = document.getElementById('role-select-update').value;
 
-  const roleName = document.getElementById('#role-name-update').value;
-  const salaryRate = document.getElementById('#role-salary-rate-update').text;
-  const salary = document.getElementById('#role-salary-update').value;
+  const roleName = document.getElementById('role-name-update').value;
+  const salaryRate = document.getElementById('role-salary-rate-update').value;
+  const salary = document.getElementById('role-salary-update').value;
 
-  const response = await fetch(`api/role/${id}`, {
+  console.log(id, roleName, salaryRate, salary);
+  const response = await fetch(`/api/role/${id}`, {
     method: 'PUT',
-    body: JSON.stringify(roleName, salaryRate, salary),
+    body: JSON.stringify({
+      name: roleName,
+      salary_rate: salaryRate,
+      // eslint-disable-next-line object-shorthand
+      salary: salary,
+    }),
     headers: { 'Content-Type': 'application/json' },
   });
 

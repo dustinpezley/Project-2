@@ -1,14 +1,19 @@
 async function addShowHandler(event) {
   event.preventDefault();
 
-  const talentId = document.getElementById('#add-show-talent').value;
-  const venueId = document.getElementById('#add-show-venue').value;
-  const performanceDate = document.getElementById('#add-show-date').value;
-  const performanceTime = document.getElementById('#add-show-time').value;
+  const talentId = document.getElementById('add-show-talent').value;
+  const venueId = document.getElementById('add-show-venue').value;
+  const performanceDate = document.getElementById('add-show-date').value;
+  const performanceTime = document.getElementById('add-show-time').value;
 
-  const response = await fetch('api/shows', {
+  const response = await fetch('/api/shows', {
     method: 'POST',
-    body: JSON.stringify(talentId, performanceDate, performanceTime, venueId),
+    body: JSON.stringify({
+      talent_id: talentId,
+      performance_date: performanceDate,
+      performance_time: performanceTime,
+      venue_id: venueId,
+    }),
     headers: { 'Content-Type': 'application/json' },
   });
 

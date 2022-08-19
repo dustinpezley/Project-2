@@ -31,7 +31,7 @@
               <p class='col-2 text-center lh-1 pb-0'>Primary venue</p>
             </div>
             <ul class='list-group list-group-flush'>
-              {{#each fullData}}
+              {{#each employees}}
                 <div class='row'>
                   <li
                     class='list-group-item col-2 text-center'
@@ -97,8 +97,8 @@
         <div class='mb-3 row'>
           <label for='employee-role' class='col-form-label'>Role</label>
           <select class='form-select' id='employee-role'>
-            {{#each role}}
-              <option value='{{role.id}}'>{{role.name}}</option>
+            {{#each roles}}
+              <option value='{{id}}'>{{name}}</option>
             {{/each}}
           </select>
         </div>
@@ -106,8 +106,8 @@
           <label for='employee-primary-venue' class='col-form-label'>Primary
             Venue</label>
           <select class='form-select' id='employee-primary-venue'>
-            {{#each venue}}
-              <option value='{{venue.id}}'>{{venue.name}}</option>
+            {{#each venues}}
+              <option value='{{id}}'>{{name}}</option>
             {{/each}}
           </select>
         </div>
@@ -144,9 +144,9 @@
       </div>
       <div class='modal-body'>
         <select class='form-select' id='select-employee-update'>
-          {{#each employee}}
-            <option value='{{employee.id}}'>{{employee.last_name}},
-              {{employee.first_name}}</option>
+          {{#each employees}}
+            <option value='{{id}}'>{{last_name}},
+              {{first_name}}</option>
           {{/each}}
         </select>
       </div>
@@ -155,7 +155,7 @@
         <button
           type='button'
           class='btn'
-          data-bs-target='#update-employees-modal{{@index}}'
+          data-bs-target='#update-employees-modal'
           data-bs-toggle='modal'
         >Go to update role</button>
       </div>
@@ -164,7 +164,7 @@
 </div>
 <div
   class='modal fade'
-  id='update-employees-modal{{@index}}'
+  id='update-employees-modal'
   tabindex='-1'
   aria-labelledby='add-employees-modal-title'
   aria-hidden='true'
@@ -205,8 +205,8 @@
         <div class='mb-3 row'>
           <label for='employee-role-update' class='col-form-label'>Role</label>
           <select class='form-select' id='employee-role-update'>
-            {{#each role}}
-              <option value='{{role.id}}'>{{role.name}}</option>
+            {{#each roles}}
+              <option value='{{id}}'>{{name}}</option>
             {{/each}}
           </select>
         </div>
@@ -216,8 +216,8 @@
             class='col-form-label'
           >Primary Venue</label>
           <select class='form-select' id='employee-primary-venue-update'>
-            {{#each venue}}
-              <option value='{{venue.id}}'>{{venue.name}}</option>
+            {{#each venues}}
+              <option value='{{id}}'>{{name}}</option>
             {{/each}}
           </select>
         </div>
@@ -254,10 +254,10 @@
         ></button>
       </div>
       <div class='modal-body'>
-        <select class='form-select'>
-          {{#each employee}}
-            <option value='{{employee.id}}'>{{employee.last_name}},
-              {{employee.first_name}}</option>
+        <select class='form-select' id='employee-remove-id'>
+          {{#each employees}}
+            <option value='{{id}}'>{{last_name}},
+              {{first_name}}</option>
           {{/each}}
         </select>
       </div>

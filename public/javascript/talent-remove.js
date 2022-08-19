@@ -1,9 +1,9 @@
 async function deleteTalentHandler(event) {
   event.preventDefault();
 
-  const id = event.target.value;
+  const id = document.getElementById('talent-remove-id').value;
 
-  const response = await fetch(`api/talent/${id}`, {
+  const response = await fetch(`/api/talent/${id}`, {
     method: 'DELETE',
   });
 

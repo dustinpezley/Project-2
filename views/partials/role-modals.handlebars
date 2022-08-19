@@ -29,15 +29,13 @@
             </div>
           </div>
           <ul class='list-group list-group-flush'>
-            {{#each role}}
+            {{#each roles}}
               <div class='row'>
-                <li class='list-group-item col-6 text-center'>{{role.name}}</li>
+                <li class='list-group-item col-6 text-center'>{{name}}</li>
+                <li class='list-group-item col-3 text-center'>{{salary}}</li>
                 <li
                   class='list-group-item col-3 text-center'
-                >{{role.salary}}</li>
-                <li
-                  class='list-group-item col-3 text-center'
-                >{{role.salary_rate}}</li>
+                >{{salary_rate}}</li>
               </div>
             {{/each}}
           </ul>
@@ -79,9 +77,9 @@
         <div class='mb-3 row'>
           <label for='role-salary-rate' class='col-form-label'>Salary Rate</label>
           <select class='form-select' id='role-salary-rate'>
-            <option value='1'>Hourly</option>
-            <option value='2'>Annually</option>
-            <option value='3'>Flat fee/One-time</option>
+            <option value='hourly'>Hourly</option>
+            <option value='annually'>Annually</option>
+            <option value='Flat Fee/One-time'>Flat fee/One-time</option>
           </select>
         </div>
         <div class='mb-3 row'>
@@ -121,8 +119,8 @@
       </div>
       <div class='modal-body'>
         <select id='role-select-update' class='form-select pe-0'>
-          {{#each role}}
-            <option value='{{role.id}}'>{{role.name}}</option>
+          {{#each roles}}
+            <option value='{{id}}'>{{name}}</option>
           {{/each}}
         </select>
       </div>
@@ -167,9 +165,9 @@
           <label for='role-salary-rate-update' class='col-form-label'>Salary
             Rate</label>
           <select class='form-select' id='role-salary-rate-update'>
-            <option value='1'>Hourly</option>
-            <option value='2'>Annually</option>
-            <option value='3'>Flat fee/One-time</option>
+            <option value='hourly'>Hourly</option>
+            <option value='annually'>Annually</option>
+            <option value='Flat fee/One-time'>Flat fee/One-time</option>
           </select>
         </div>
         <div class='mb-3 row'>
@@ -206,9 +204,9 @@
         ></button>
       </div>
       <div class='modal-body'>
-        <select class='form-select'>
-          {{#each role}}
-            <option value='{{role.id}}'>{{role.name}}</option>
+        <select class='form-select' id='role-remove-id'>
+          {{#each roles}}
+            <option value='{{id}}'>{{name}}</option>
           {{/each}}
         </select>
       </div>

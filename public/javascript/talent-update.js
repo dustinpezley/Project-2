@@ -1,13 +1,14 @@
 async function updateTalentHandler(event) {
   event.preventDefault();
 
-  const id = document.getElementById('#talent-select-update').value;
+  const id = document.getElementById('talent-select-update').value;
 
-  const title = document.getElementById('#talent-name-update').value;
+  const title = document.getElementById('talent-name-update').value;
 
-  const response = await fetch(`api/talent/${id}`, {
+  const response = await fetch(`/api/talent/${id}`, {
     method: 'PUT',
-    body: JSON.stringify(title),
+    // eslint-disable-next-line object-shorthand
+    body: JSON.stringify({ title: title }),
     headers: { 'Content-Type': 'application/json' },
   });
 

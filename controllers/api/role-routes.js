@@ -54,18 +54,28 @@ router.get('/:id', withAuth, (req, res) => {
     });
 });
 
+// Add a new role
+router.post('/', (req, res) => {
+  Role.create({
+    name: req.body.name,
+    salary_rate: req.body.salary_rate,
+    salary: req.body.salary,
+  })
+    .then((dbRoleData) => res.json(dbRoleData))
+    .catch((err) => res.status(500).json(err));
+});
+
 // Update role information
 router.put('/:id', withAuth, (req, res) => {
   Role.update(
     {
-      id: req.body.id,
       name: req.body.name,
       salary_rate: req.body.salary_rate,
       salary: req.body.salary,
     },
     {
       where: {
-        id: req.body.id,
+        id: req.params.id,
       },
     }
   )

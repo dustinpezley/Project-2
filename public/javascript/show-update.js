@@ -1,16 +1,21 @@
 async function updateShowHandler(event) {
   event.preventDefault();
 
-  const id = document.getElementById('#select-show-update').value;
+  const id = document.getElementById('select-show-update').value;
 
-  const talentId = document.getElementById('#update-show-talent').value;
-  const venueId = document.getElementById('#update-show-venue').value;
-  const performanceDate = document.getElementById('#update-show-date').value;
-  const performanceTime = document.getElementById('#update-show-time').value;
+  const talentId = document.getElementById('update-show-talent').value;
+  const venueId = document.getElementById('update-show-venue').value;
+  const performanceDate = document.getElementById('update-show-date').value;
+  const performanceTime = document.getElementById('update-show-time').value;
 
-  const response = await fetch(`api/shows/${id}`, {
+  const response = await fetch(`/api/shows/${id}`, {
     method: 'PUT',
-    body: JSON.stringify(talentId, venueId, performanceDate, performanceTime),
+    body: JSON.stringify({
+      talent_id: talentId,
+      venue_id: venueId,
+      performance_date: performanceDate,
+      performance_time: performanceTime,
+    }),
     headers: { 'Content-Type': 'application/json' },
   });
 
