@@ -28,7 +28,6 @@ Talent.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'talent',
-    modelName: 'talent',
   }
 );
 

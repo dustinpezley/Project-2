@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { User, Employee, Role, Venue } = require('../../models');
+const { User, Role, Venue } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all roles
-router.get(`/`, withAuth, (req, res) => {
+router.get('/', withAuth, (req, res) => {
   Role.findAll({
     attributes: ['id', 'name', 'salary-rate', 'salary'],
     include: [
