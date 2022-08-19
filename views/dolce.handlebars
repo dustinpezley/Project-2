@@ -7,10 +7,11 @@
   <div
     class='row justify-content-center align-items-center next-show-info-container'
   >
-    <div class='next-show-info col-8'>
-        <div class='col-6 artist-info'>
-          <p class='show-date'>{{shows.performance_date}}</p>
-          <h2 class='artist-name'>{{talent.title}}</h2>
+    <div class="description col-2">Next up!</div>
+    <div class='next-show-info col-4 card text-center'>
+        <div class='col-6 artist-info card-body'>
+          <p class='show-date col-6'>{{format_date shows.performance_date}}</p>
+          <h2 class='artist-name w-100'>{{shows.talent.title}}</h2>
         </div>
     </div>
   </div>

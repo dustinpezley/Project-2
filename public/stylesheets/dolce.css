@@ -52,6 +52,27 @@ body {
   height: 20vh;
 }
 
+.description {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 5rem;
+  color: var(--white);
+}
+
+.card {
+  background-color: var(--white);
+  font-family: 'Reenie Beanie', cursive;
+  color: var(--purple);
+}
+
+.show-date {
+  font-size: 1.5rem;
+}
+.artist-name {
+  font-family: 'Reenie Beanie', cursive;
+  color: var(--purple);
+  font-size: 2.5rem;
+}
+
 .info-container {
   height: 60vh;
 }
