@@ -34,16 +34,16 @@ body {
 /* SCROLLBAR END */
 
 /* MENU STYLING SPECIFIC TO PAGE */
-.dropdown-toggle {
+#calendar-button {
   background-color: transparent;
-  border: 3px solid #dc2b46;
+  border: 3px solid var(--red);
   border-radius: 10px;
-  color: white;
+  color: var(--white);
 }
 
-.dropdown-toggle:hover {
-  border: 3px solid white;
-  color: #dc2b46;
+#calendar-button:hover {
+  border: 3px solid var(--blue);
+  color: var(--red);
 }
 /* MENU STYLING END */
 
@@ -52,8 +52,39 @@ body {
   height: 20vh;
 }
 
+.description {
+  font-family: 'Reenie Beanie', cursive;
+  font-size: 5rem;
+  color: var(--white);
+}
+
+.card {
+  background-color: var(--white);
+  font-family: 'Reenie Beanie', cursive;
+  color: var(--purple);
+}
+
+.show-date {
+  font-size: 1.5rem;
+}
+.artist-name {
+  font-family: 'Reenie Beanie', cursive;
+  color: var(--purple);
+  font-size: 2.5rem;
+}
+
 .info-container {
   height: 60vh;
+}
+
+#dolce-sound {
+  margin: 0;
+  padding: 0;
+  bottom: -4rem;
+  width: 100vw;
+  height: auto;
+  left: -20rem;
+  z-index: 1;
 }
 
 .info {

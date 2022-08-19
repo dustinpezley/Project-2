@@ -18,11 +18,12 @@
     {{#each shows as |show|}}
       <div class="col show-card">
           <div class="show-information">
-            <h3>{{show.talent}}</h3>
+            <h3>{{show.talent.title}}</h3>
             Date: {{show.performance_date}}
             Time: {{show.performance_time}}
           </div>
       </div>
+      {{/each}}
   </div>
 </div>
 

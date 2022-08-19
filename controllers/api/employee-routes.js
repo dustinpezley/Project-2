@@ -75,7 +75,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // Update employee information
-router.put('/:id', withAuth, (req, res) => {
+router.put('/', withAuth, (req, res) => {
   Employee.update(
     {
       first_name: req.body.first_name,
