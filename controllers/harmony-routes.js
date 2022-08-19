@@ -1,10 +1,19 @@
+const { Op } = require('sequelize');
 const router = require('express').Router();
 const { Shows, Venue, Talent } = require('../models');
 
 router.get('/', (req, res) => {
-  Shows.findAll({
+  const currentDate = new Date().toISOString().split('T')[0];
+  Shows.findOne({
     where: {
-      venue_id: 2,
+      [Op.and]: [
+        { venue_id: 3 },
+        {
+          performance_date: {
+            [Op.gte]: currentDate,
+          },
+        },
+      ],
     },
     attributes: ['performance_date', 'performance_time'],
     order: [['performance_date'], ['performance_time']],
@@ -20,8 +29,9 @@ router.get('/', (req, res) => {
     ],
   })
     .then((dbShowsData) => {
-      const shows = dbShowsData.map((show) => show.get({ plain: true }));
-      res.render('modular', { shows, title: 'Modular' });
+      dbShowsData.get({ plain: true });
+
+      res.render('harmony', { dbShowsData, title: 'Harmony' });
     })
     .catch((err) => {
       res.status(500).json(err);

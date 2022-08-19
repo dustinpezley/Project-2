@@ -5,7 +5,6 @@ const { Shows, Venue, Talent } = require('../models');
 // Get all shows for Dolce
 router.get('/', (req, res) => {
   const currentDate = new Date().toISOString().split('T')[0];
-  console.log(currentDate);
   Shows.findOne({
     where: {
       [Op.and]: [
@@ -17,7 +16,13 @@ router.get('/', (req, res) => {
         },
       ],
     },
-    attributes: ['performance_date', 'performance_time'],
+    attributes: [
+      'performance_date',
+      'performance_time',
+      'id',
+      'talent_id',
+      'venue_id',
+    ],
     order: ['performance_date', 'performance_time'],
     include: [
       {
@@ -31,9 +36,9 @@ router.get('/', (req, res) => {
     ],
   })
     .then((dbShowsData) => {
-      dbShowsData.get({ plain: true });
+      const shows = dbShowsData.get({ plain: true });
 
-      res.render('dolce', { dbShowsData, title: 'Dolce' });
+      res.render('dolce', { shows, title: 'Dolce' });
     })
     .catch((err) => {
       res.status(500).json(err);
