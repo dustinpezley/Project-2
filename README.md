@@ -17,6 +17,10 @@ Use `npm i` to install all necessary Node packages.
 
 ## Usage
 Use like any other website. Admin functionality requires database entry on the back-end.
+
+Deployed to GitHub pages [here](https://dustinpezley.github.io/polyrhythm-entertainment/).
+Deployed to Heroku [here](https://polyrhythm-entertainment.herokuapp.com/).
+
 ![Title page screenshot](https://github.com/dustinpezley/polyrhythm-entertainment/blob/91c237c0041b5146ad3a63bbfa4434a540ec13ce/public/assets/images/Polyrhythm_screenshot.png)
 
 ## Credits  
